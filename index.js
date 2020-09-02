@@ -21,8 +21,7 @@ app.get('/api/courses', (req, res) => {
 app.post('/api/courses', (req, res) => {
     const { error } = validateCourse(req.body); // the same than: validation.error
     if (error) {
-        res.status(400).send(error.details[0].message);
-        return;
+        return res.status(400).send(error.details[0].message);
     }
 
     const course = {
@@ -45,8 +44,7 @@ app.put('/api/courses/:id', (req, res) => {
     // If invalid, return 400 - Bad request
     const { error } = validateCourse(req.body); // the same than: validation.error
     if (error) {
-        res.status(400).send(error.details[0].message);
-        return;
+        return res.status(400).send(error.details[0].message);
     }
 
     // >>> Update course
@@ -60,7 +58,7 @@ app.delete('/api/courses/:id', (req, res) => {
     // If not existing, return  404
     const course = courses.find(c => c.id === parseInt(req.params.id));
     if (!course) {
-        res.status(404).send('Course with the given ID was now found');
+        return res.status(404).send('Course with the given ID was now found');
     }
 
     // Delete
@@ -80,7 +78,7 @@ function validateCourse(course) {
 app.get('/api/courses/:id', (req, res) => {
     const course = courses.find(c => c.id === parseInt(req.params.id));
     if (!course) {
-        res.status(404).send('Course with the given ID was now found');
+        return res.status(404).send('Course with the given ID was now found');
     }
     res.send(course);
 });
