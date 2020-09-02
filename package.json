@@ -1,13 +1,13 @@
 {
-  "name": "youtube",
+  "name": "node-rest-express",
   "version": "1.0.0",
   "description": "",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "Andres Campuzano",
+  "license": "MIT",
   "dependencies": {
     "dotenv-safe": "^8.2.0",
     "express": "^4.17.1",
